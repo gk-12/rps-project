@@ -1,3 +1,7 @@
+let humanScore = 0;
+let computerScore = 0;
+
+
 function getComputerChoice()
 {
 
@@ -5,16 +9,29 @@ function getComputerChoice()
 
     let computer = Math.floor(Math.random() * game.length);
 
-    return computer;
-}
+    let random = game[computer];
 
+    return random;
+}
 
 function getHumanChoice()
 {
-    let computer = getComputerChoice();
+    let human = prompt("Enter: ");
 
-    
-    return computer;
+    return human;
 }
 
-console.log(getHumanChoice());
+
+function playRound(HumanChoice, ComputerChoice)
+{
+    HumanChoice = getHumanChoice();
+    ComputerChoice = getComputerChoice;
+
+    if(HumanChoice === ComputerChoice)
+    {
+        console.log(`Draw!!! Human: ${HumanChoice} Computer${ComputerChoice}`);
+        humanScore++;
+        computerScore++;
+    }
+
+}
