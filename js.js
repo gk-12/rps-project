@@ -3,7 +3,7 @@ let computerScore = 0;
 
 
 function getComputerChoice()
-{
+{   
 
     let game =["r", "p", "s"];
 
@@ -25,13 +25,36 @@ function getHumanChoice()
 function playRound(HumanChoice, ComputerChoice)
 {
     HumanChoice = getHumanChoice();
-    ComputerChoice = getComputerChoice;
+    ComputerChoice = getComputerChoice();
+
 
     if(HumanChoice === ComputerChoice)
     {
-        console.log(`Draw!!! Human: ${HumanChoice} Computer${ComputerChoice}`);
         humanScore++;
+        computerScore++;        
+    }
+    else if(HumanChoice  === "r" && ComputerChoice === "s" || HumanChoice === "s" && ComputerChoice === "p" || HumanChoice === "p" && ComputerChoice === "r")
+    {
+        humanScore++;
+    }
+    else
+    {
         computerScore++;
     }
 
+    if(humanScore === computerScore)
+    {
+        console.log(`Draw!!! human: ${HumanChoice}| computer: ${ComputerChoice}`);
+    }
+    else if(humanScore > computerScore)
+    {
+        console.log(`human WON!!! human: ${HumanChoice} | computer: ${ComputerChoice}`);
+    }
+    else
+    {
+        console.log(`computer WON!!! human: ${HumanChoice} | computer: ${ComputerChoice}`);
+    }
+
 }
+
+playRound(getHumanChoice, getComputerChoice);
