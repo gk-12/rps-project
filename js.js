@@ -1,7 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
 
-
 function getComputerChoice()
 {   
 
@@ -18,6 +17,7 @@ function getHumanChoice()
 {
     let human = prompt("Enter: ");
 
+
     return human;
 }
 
@@ -32,29 +32,42 @@ function playRound(HumanChoice, ComputerChoice)
     {
         humanScore++;
         computerScore++;        
+        console.log(`Draw!!! human: ${HumanChoice}| computer: ${ComputerChoice}`);
+
     }
     else if(HumanChoice  === "r" && ComputerChoice === "s" || HumanChoice === "s" && ComputerChoice === "p" || HumanChoice === "p" && ComputerChoice === "r")
     {
         humanScore++;
+        console.log(`human WON!!! human: ${HumanChoice} | computer: ${ComputerChoice}`);
+
     }
     else
     {
         computerScore++;
-    }
-
-    if(humanScore === computerScore)
-    {
-        console.log(`Draw!!! human: ${HumanChoice}| computer: ${ComputerChoice}`);
-    }
-    else if(humanScore > computerScore)
-    {
-        console.log(`human WON!!! human: ${HumanChoice} | computer: ${ComputerChoice}`);
-    }
-    else
-    {
         console.log(`computer WON!!! human: ${HumanChoice} | computer: ${ComputerChoice}`);
+
     }
 
 }
 
-playRound(getHumanChoice, getComputerChoice);
+let i = 0;
+while(i < 5)
+{
+    playRound();
+    i++;
+}
+
+if(humanScore === computerScore)
+{
+    console.log(`Draw!!!`);
+}
+
+else if(humanScore > computerScore)
+{
+    console.log(`human Won!!!`);
+}
+
+else
+{
+    console.log(`computer Won!!!`);
+}
